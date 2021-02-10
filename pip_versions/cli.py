@@ -10,9 +10,9 @@ class Versions(Cliar):
     """Pip versions.
     List the versions available to a pip package"""
 
-    def list(self, package_name: str, include_pre: bool = False):
+    def list(self, package_name: str, include_pre: bool = False, repo_index_url: str = ''):
         """List the versions available to a package"""
-        versions = find_versions(package_name, include_pre)
+        versions = find_versions(package_name, include_pre, repo_index_url)
         for v in sorted(set(v.version for v in versions)):
             print(v)
 
